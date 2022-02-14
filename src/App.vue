@@ -2,8 +2,7 @@
 <div class="container">
   <div class="search-bar">
     <input type="text" placeholder="Cerca un titolo..." v-model="query" @keyup.enter="searchMovies(), searchSeries(), noSearch()">
-    <button @click="searchMovies()" >Cerca film</button>
-    <button @click="searchSeries()" >Cerca serie</button>
+    <button @click="searchMovies(),searchSeries()" >Cerca un titolo</button>
   </div>
   <div class="movies-list" v-if="movies.length">
     <h1>Film</h1>
@@ -11,7 +10,7 @@
       <li>
         {{movie.title}} -
         {{movie.original_title}} -
-        <img :src=`assets/flags/${movie.original_language}.png` alt=""> -
+        <img :src="require(`./assets/flags/${movie.original_language}.png`)" alt=""> -
         {{movie.vote_average}}
       </li>
     </ul>
@@ -20,9 +19,9 @@
     <h1>Serie TV</h1>
     <ul v-for="serie in series" :key="serie.title">
       <li>
-        {{serie.name}}
-        {{serie.original_name}}
-        {{serie.original_language}}
+        {{serie.name}} -
+        {{serie.original_name}} -
+        <img :src="require(`./assets/flags/${serie.original_language}.png`)" alt=""> -
         {{serie.vote_average}}
       </li>
     </ul>
@@ -77,5 +76,8 @@ body{
 }
 li{
   list-style-type: none;
+}
+img{
+  width: 20px;
 }
 </style>
