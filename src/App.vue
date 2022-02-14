@@ -1,9 +1,9 @@
 <template>
 <div class="container">
   <div class="search-bar">
-    <input type="text" placeholder="Cerca un titolo..." v-model="searchResult">
-    <button @click="searchMovies()">Cerca film</button>
-    <button @click="searchSeries()">Cerca serie</button>
+    <input type="text" placeholder="Cerca un titolo..." v-model="query" @keyup.enter="searchMovies(), searchSeries(), noSearch()">
+    <button @click="searchMovies()" >Cerca film</button>
+    <button @click="searchSeries()" >Cerca serie</button>
   </div>
   <div class="movies-list" v-if="movies.length">
     <h1>Film</h1>
@@ -56,6 +56,11 @@ export default {
     searchSeries(){
       axios.get(`https://api.themoviedb.org/3/search/tv?api_key=${this.apiKey}&query=${this.query}&language=it-IT`).then((res) => {
       this.series = res.data.results;});
+    },
+    noSearch(){
+      if(!this.query){
+        return 'Cerca un titolo';
+      }
     },
     realSearch(){
       this.$emit("query-search-movie", this.searchResult);
