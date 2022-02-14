@@ -11,7 +11,7 @@
       <li>
         {{movie.title}} -
         {{movie.original_title}} -
-        {{movie.original_language}} -
+        <img :src=`assets/flags/${movie.original_language}.png` alt=""> -
         {{movie.vote_average}}
       </li>
     </ul>
