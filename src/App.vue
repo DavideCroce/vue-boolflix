@@ -41,7 +41,7 @@ export default {
     return {
       movies: [],
       series: [],
-      query: "games",
+      query: '',
       apiKey: "c2b4899b88804168313526c583bf26b2",
     }
   },
@@ -57,6 +57,11 @@ export default {
       axios.get(`https://api.themoviedb.org/3/search/tv?api_key=${this.apiKey}&query=${this.query}&language=it-IT`).then((res) => {
       this.series = res.data.results;});
     },
+    realSearch(){
+      this.$emit("query-search-movie", this.searchResult);
+      this.$emit("query-search-tv", this.searchResult);
+      this.searchResult = "";
+    }
   },
 }
 </script>
