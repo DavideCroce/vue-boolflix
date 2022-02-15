@@ -6,7 +6,7 @@
   </div>
   <div class="movies-list" v-if="movies.length">
     <h1>Film</h1>
-    <ul v-for="movie in movies" :key="movie.title" >
+    <ul v-for="movie in movies" :key="movie.id" >
       <li>
         {{movie.title}} -
         {{movie.original_title}} -
@@ -17,7 +17,7 @@
   </div>
   <div class="series-list" v-if="series.length">
     <h1>Serie TV</h1>
-    <ul v-for="serie in series" :key="serie.title">
+    <ul v-for="serie in series" :key="serie.id">
       <li>
         {{serie.name}} -
         {{serie.original_name}} -
