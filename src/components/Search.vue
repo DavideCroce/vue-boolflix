@@ -1,7 +1,7 @@
 <template>
   <div class="search-bar">
-    <input type="text" placeholder="Cerca un titolo..." v-model="query" @keyup.enter="searchMovies(), searchSeries(), noSearch()">
-    <button @click="searchMovies(),searchSeries()" >Cerca un titolo</button>
+    <input type="text" placeholder="Cerca un titolo..." v-model="query" @keyup.enter="searchMovies(), searchSeries()">
+    <button @click="searchMovies(),searchSeries()">Cerca un titolo</button>
   </div>
 </template>
 
