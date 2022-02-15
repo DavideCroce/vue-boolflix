@@ -1,7 +1,7 @@
 <template>
   <div class="search-bar">
     <input type="text" placeholder="Cerca un titolo..." v-model="query" @keyup.enter="search()">
-    <button @click="search()">Cerca un titolo</button>
+    <button @click="search()">CERCA UN TITOLO</button>
   </div>
 </template>
 
@@ -21,6 +21,17 @@ methods: {
 }
 </script>
 
-<style>
-
+<style scoped lang="scss">
+button{
+    background-color: red;
+    color: white;
+    padding: 10px;
+    border: none;
+}
+input{
+    border: none;
+    padding: 10px;
+    background-color: rgb(114, 114, 114);
+    color: white;
+}
 </style>

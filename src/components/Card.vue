@@ -7,10 +7,10 @@
               </div>
           </li>
           <li class="text">
-              Titolo: {{item.title || item.name}}
+              <strong>Titolo</strong>: {{item.title || item.name}}
           </li>
           <li class="text">
-              Titolo originale: {{item.original_title || item.original_name}}
+              <strong>Titolo originale</strong>: {{item.original_title || item.original_name}}
           </li>
           <li>
               <div class="flag">
@@ -21,7 +21,7 @@
               </div>
           </li>
           <li class="text">
-              Voto: {{item.vote_average}}
+              <strong>Voto</strong>: {{item.vote_average}}
           </li>
       </ul>
   </div>
@@ -61,9 +61,6 @@ ul{
         text-align: center;
         margin: 10px 0;
     }
-    // .text{
-    //     width: 90%;
-    // }
 }
 .poster img{
     position: absolute;

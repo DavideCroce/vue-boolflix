@@ -5,11 +5,11 @@
     <Search @research="search"/>
   </header>
   <main>
-    <h1>Film</h1>
+    <h1>FILM</h1>
     <div class="movies-list" v-if="movies.length">
     <Card v-for="movie in movies" :key="movie.id" :item="movie"/>
   </div>
-    <h1>Serie TV</h1>
+    <h1>SERIE TV</h1>
   <div class="series-list" v-if="series.length">
     <Card v-for="serie in series" :key="serie.id" :item="serie"/>
   </div>
@@ -63,13 +63,18 @@ main{
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding-top: 100px;
   .movies-list, .series-list{
     color: white;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    margin-bottom: 50px;
+    margin-bottom: 200px;
     margin-left: 100px;
+  }
+  h1{
+    color: red;
+    padding-bottom: 50px;
   }
 }
 header{
