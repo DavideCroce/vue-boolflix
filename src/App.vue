@@ -2,15 +2,15 @@
 <div class="container">
   <header>
     <img src="./assets/img/boolflix.png" alt="">
-    <Search/>
+    <Search @research="search"/>
   </header>
   <main>
-    <div class="movies-list" v-if="movies.length">
     <h1>Film</h1>
+    <div class="movies-list" v-if="movies.length">
     <Card v-for="movie in movies" :key="movie.id" :item="movie"/>
   </div>
-  <div class="series-list" v-if="series.length">
     <h1>Serie TV</h1>
+  <div class="series-list" v-if="series.length">
     <Card v-for="serie in series" :key="serie.id" :item="serie"/>
   </div>
   </main>
@@ -20,6 +20,7 @@
 <script>
 import Card from './components/Card.vue';
 import Search from './components/Search.vue';
+import axios from 'axios';
 export default {
   name: 'App',
   components: {
@@ -34,6 +35,14 @@ export default {
       apiKey: "c2b4899b88804168313526c583bf26b2",
     }
   },
+methods: {
+    search(value){
+      axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${this.apiKey}&query=${value}&language=it-IT`).then((res) => {
+      this.movies = res.data.results;});
+      axios.get(`https://api.themoviedb.org/3/search/tv?api_key=${this.apiKey}&query=${value}&language=it-IT`).then((res) => {
+      this.series = res.data.results;});
+    },
+}
 }
 </script>
 
@@ -48,8 +57,20 @@ body{
 }
 main{
   background-color: rgb(75, 75, 75);
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  .movies-list, .series-list{
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-bottom: 50px;
+    margin-left: 100px;
+  }
 }
 header{
   background-color: rgb(46, 45, 45);
