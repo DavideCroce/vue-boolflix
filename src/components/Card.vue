@@ -40,4 +40,7 @@ li{
 img{
   width: 20px;
 }
+.title-card{
+    color: white;
+}
 </style>

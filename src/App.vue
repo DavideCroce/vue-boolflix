@@ -1,40 +1,26 @@
 <template>
 <div class="container">
-  <div class="search-bar">
-    <input type="text" placeholder="Cerca un titolo..." v-model="query" @keyup.enter="searchMovies(), searchSeries(), noSearch()">
-    <button @click="searchMovies(),searchSeries()" >Cerca un titolo</button>
-  </div>
+  <Header/>
+  <main></main>
   <div class="movies-list" v-if="movies.length">
     <h1>Film</h1>
-    <ul v-for="movie in movies" :key="movie.id" >
-      <li>
-        {{movie.title}} -
-        {{movie.original_title}} -
-        <img :src="require(`./assets/flags/${movie.original_language}.png`)" alt=""> -
-        {{movie.vote_average}}
-      </li>
-    </ul>
+    <Card v-for="movie in movies" :key="movie.id" :item="movie"/>
   </div>
   <div class="series-list" v-if="series.length">
     <h1>Serie TV</h1>
-    <ul v-for="serie in series" :key="serie.id">
-      <li>
-        {{serie.name}} -
-        {{serie.original_name}} -
-        <img :src="require(`./assets/flags/${serie.original_language}.png`)" alt=""> -
-        {{serie.vote_average}}
-      </li>
-    </ul>
+    <Card v-for="serie in series" :key="serie.id" :item="serie"/>
   </div>
 </div>
 </template>
 
 <script>
-import axios from 'axios';
+import Header from './components/Header.vue';
+import Card from './components/Card.vue';
 export default {
   name: 'App',
   components: {
-    
+    Card,
+    Header,
   },
   data(){
     return {
@@ -47,14 +33,6 @@ export default {
   methods: {
     searched(search){
       this.searchResult = search;
-    },
-    searchMovies(){
-      axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${this.apiKey}&query=${this.query}&language=it-IT`).then((res) => {
-      this.movies = res.data.results;});
-    },
-    searchSeries(){
-      axios.get(`https://api.themoviedb.org/3/search/tv?api_key=${this.apiKey}&query=${this.query}&language=it-IT`).then((res) => {
-      this.series = res.data.results;});
     },
     noSearch(){
       if(!this.query){
@@ -71,6 +49,11 @@ export default {
 </script>
 
 <style lang="scss">
+*{
+  padding: 0;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
 body{
   font-family: sans-serif;
 }
@@ -79,5 +62,10 @@ li{
 }
 img{
   width: 20px;
+}
+main{
+  background-color: rgb(75, 75, 75);
+  width: 100%;
+  height: 100%;
 }
 </style>
