@@ -7,10 +7,10 @@
               </div>
           </li>
           <li class="text">
-              {{item.title || item.name}}
+              Titolo: {{item.title || item.name}}
           </li>
           <li class="text">
-              {{item.original_title || item.original_name}}
+              Titolo originale: {{item.original_title || item.original_name}}
           </li>
           <li>
               <div class="flag">
@@ -21,7 +21,7 @@
               </div>
           </li>
           <li class="text">
-              {{item.vote_average}}
+              Voto: {{item.vote_average}}
           </li>
       </ul>
   </div>
@@ -52,25 +52,37 @@ ul{
   display: flex;
   justify-content: center;
   flex-direction: column;
-  background-color: grey;
-  height: 590px;
+  background-color: black;
   align-items: center;
+  height: 278px;
 
     li{
         list-style-type: none;
         text-align: center;
-        margin: 20px 0;
+        margin: 10px 0;
     }
     // .text{
     //     width: 90%;
     // }
 }
+.poster img{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+ul:hover .poster{
+    cursor: pointer;
+    display: none;
+}
 
-.flag img{
-  width: 20px;
+.flag{
+    img{
+        width: 20px;
+    }
 }
 .title-card{
     width: 185px;
-    margin: 20px
+    margin: 20px;
+    position: relative;
 }
 </style>
