@@ -27,12 +27,17 @@ button{
     color: white;
     padding: 10px;
     border: none;
+    cursor: pointer;
 }
 input{
     border: none;
     padding: 10px;
     background-color: rgb(114, 114, 114);
     color: white;
+    border: none;
+    :active{
+      border: none;
+    }
 }
 
 ::placeholder {

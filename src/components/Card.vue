@@ -19,7 +19,7 @@
               <div class="flag">
                   <strong>Lingua originale</strong>: <img v-if="flagslist.includes(item.original_language)" :src="flagResearch" alt="">
                   <span v-else>
-                    <strong>Lingua originale</strong>: {{item.original_language}}
+                    {{item.original_language}}
                   </span>
               </div>
           </li>
@@ -71,9 +71,7 @@ ul{
     }
 }
 ul:hover{
-
   .poster, .poster-null{
-    cursor: pointer;
     display: none;
   }
 }
@@ -88,6 +86,7 @@ ul:hover{
     width: 185px;
     margin: 20px;
     position: relative;
+    cursor: pointer;
 }
 .text{
     width: 90%;
