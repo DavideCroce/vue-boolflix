@@ -33,7 +33,7 @@ name: 'Card',
 props: ['item'],
 data(){
     return{
-        flagslist:['de', 'en', 'es', 'fr', 'it', 'jp', 'pt', 'ru']
+        flagslist:['de', 'en', 'es', 'fr', 'it', 'ja', 'pt', 'ru']
     }
 },
 computed: {
