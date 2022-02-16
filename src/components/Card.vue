@@ -2,12 +2,12 @@
   <div class="title-card">
       <ul>
           <li>
-              <div class="poster">
+              <div v-if="item.poster_path === null" class="poster-null">
+                  <img src="https://www.altavod.com/assets/images/poster-placeholder.png" alt="">
+              </div>
+              <div v-else class="poster">
                   <img :src="`https://image.tmdb.org/t/p/w185${item.poster_path}`" alt="">
               </div>
-              <!-- <div class="poster-null">
-                  <img src="https://www.altavod.com/assets/images/poster-placeholder.png" alt="">
-              </div> -->
           </li>
           <li class="text">
               <strong>Titolo</strong>: {{item.title || item.name}}
@@ -62,18 +62,20 @@ ul{
         margin: 10px 0;
     }
 }
-.poster img{
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 278px;
+.poster,.poster-null{
+    img{
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 278px;
+    }
 }
-ul:hover .poster{
+ul:hover{
+
+  .poster, .poster-null{
     cursor: pointer;
     display: none;
-}
-.poster-null img{
-    height: 278px;
+  }
 }
 
 .flag{
