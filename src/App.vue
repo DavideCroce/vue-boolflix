@@ -74,8 +74,12 @@ main{
     margin-right: 100px;
   }
   h1{
-    color: red;
-    padding-bottom: 50px;
+    color: white;
+    margin-bottom: 50px;
+    background-color: red;
+    padding: 10px 50px;
+    width: 300px;
+    text-align: center;
   }
 }
 header{
