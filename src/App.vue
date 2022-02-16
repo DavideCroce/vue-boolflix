@@ -59,7 +59,6 @@ main{
   background-color: rgb(75, 75, 75);
   width: 100%;
   height: 100%;
-  text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -68,9 +67,11 @@ main{
     color: white;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     flex-direction: row;
     margin-bottom: 200px;
     margin-left: 100px;
+    margin-right: 100px;
   }
   h1{
     color: red;

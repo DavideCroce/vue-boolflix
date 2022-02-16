@@ -14,14 +14,14 @@
           </li>
           <li>
               <div class="flag">
-                  <img v-if="flagslist.includes(item.original_language)" :src="flagResearch" alt="">
+                  <strong>Lingua originale</strong>: <img v-if="flagslist.includes(item.original_language)" :src="flagResearch" alt="">
                   <span v-else>
-                    {{item.original_language}}
+                    <strong>Lingua originale</strong>: {{item.original_language}}
                   </span>
               </div>
           </li>
           <li class="text">
-              <strong>Voto</strong>: {{item.vote_average}}
+              <strong>Voto</strong>: {{voteConvert}}
           </li>
       </ul>
   </div>
@@ -50,15 +50,12 @@ computed: {
 <style scoped lang="scss">
 ul{
   display: flex;
-  justify-content: center;
   flex-direction: column;
   background-color: black;
-  align-items: center;
   height: 278px;
 
     li{
         list-style-type: none;
-        text-align: center;
         margin: 10px 0;
     }
 }
@@ -66,6 +63,7 @@ ul{
     position: absolute;
     top: 0;
     left: 0;
+    height: 278px;
 }
 ul:hover .poster{
     cursor: pointer;
@@ -73,6 +71,7 @@ ul:hover .poster{
 }
 
 .flag{
+    margin-left: 10px;
     img{
         width: 20px;
     }
@@ -81,5 +80,9 @@ ul:hover .poster{
     width: 185px;
     margin: 20px;
     position: relative;
+}
+.text{
+    width: 90%;
+    margin-left: 10px;
 }
 </style>
