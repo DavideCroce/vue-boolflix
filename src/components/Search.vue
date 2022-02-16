@@ -34,4 +34,9 @@ input{
     background-color: rgb(114, 114, 114);
     color: white;
 }
+
+::placeholder {
+color: #fff;
+}
+
 </style>
