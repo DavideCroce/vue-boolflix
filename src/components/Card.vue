@@ -24,8 +24,7 @@
               </div>
           </li>
           <li class="text">
-              <i v-for="n in 5" :key="n" class="fa-star" :class="n <= voteConvert ? 'fas' : 'far'"></i>
-              <strong>Voto</strong>: {{voteConvert}}
+              <strong>Voto</strong>: <i v-for="n in 5" :key="n" class="fa-star" :class="n <= voteConvert ? 'fa-solid' : 'fa-regular'"></i>
           </li>
       </ul>
   </div>
@@ -91,5 +90,8 @@ ul:hover .poster{
 .text{
     width: 90%;
     margin-left: 10px;
+}
+.fa-solid{
+    color: rgb(255, 136, 0);
 }
 </style>
