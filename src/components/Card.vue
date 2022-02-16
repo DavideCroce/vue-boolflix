@@ -5,6 +5,9 @@
               <div class="poster">
                   <img :src="`https://image.tmdb.org/t/p/w185${item.poster_path}`" alt="">
               </div>
+              <!-- <div class="poster-null">
+                  <img src="https://www.altavod.com/assets/images/poster-placeholder.png" alt="">
+              </div> -->
           </li>
           <li class="text">
               <strong>Titolo</strong>: {{item.title || item.name}}
@@ -21,6 +24,7 @@
               </div>
           </li>
           <li class="text">
+              <i v-for="n in 5" :key="n" class="fa-star" :class="n <= voteConvert ? 'fas' : 'far'"></i>
               <strong>Voto</strong>: {{voteConvert}}
           </li>
       </ul>
@@ -68,6 +72,9 @@ ul{
 ul:hover .poster{
     cursor: pointer;
     display: none;
+}
+.poster-null img{
+    height: 278px;
 }
 
 .flag{
